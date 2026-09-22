@@ -1,0 +1,12 @@
+services:
+  # MongoDB service
+  mongo-dbserver:
+    image: mongo
+    container_name: mongo-dbserver
+    ports:
+      - "27017:27017"
+
+  # Java Application service
+  app:
+    build: .
+    container_name: app
