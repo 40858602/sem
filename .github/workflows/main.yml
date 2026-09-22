@@ -20,7 +20,7 @@ jobs:
         run: mvn package -DskipTests
 
       - name: Build and Run with Docker Compose
-        run: docker-compose up --build -d
+        run: docker compose up --build -d
 
       - name: Check Container Logs
         run: |
