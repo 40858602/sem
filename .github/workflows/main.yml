@@ -5,6 +5,7 @@ jobs:
   build:
     name: Hello world action
     runs-on: ubuntu-22.04
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,6 +18,9 @@ jobs:
 
       - name: Package with Maven
         run: mvn package -DskipTests
+
+      - name: Check generated JAR
+        run: ls -la target
 
       - name: Build and Run with Docker Compose
         run: docker compose up -d --build
