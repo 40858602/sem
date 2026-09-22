@@ -1,12 +1,12 @@
+version: '3'
 services:
-  # MongoDB service
-  mongo-dbserver:
-    image: mongo
-    container_name: mongo-dbserver
-    ports:
-      - "27017:27017"
-
-  # Java Application service
   app:
     build: .
-    container_name: app
+    ports:
+      - "8080:8080"
+    links:
+      - db
+  db:
+    image: mongo
+    ports:
+      - "27000:27017"
